@@ -4,7 +4,7 @@ window.UpsetPoultry.Swine = (function() {
     this.y = y
     this.radius = 20
     this.alive = true
-    this.color = '#009900'
+    this.color = '#6de249'
     this.mass = 5
     this.cr   = 0.5
     this.friction = 0.05
@@ -33,6 +33,9 @@ window.UpsetPoultry.Swine = (function() {
       ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false)
       ctx.fillStyle = this.color
       ctx.fill()
+      ctx.lineWidth = 2
+      ctx.strokeStyle = this.border
+      ctx.stroke()
     }
 
     klass.prototype.drawExplosion = function(ctx) {
@@ -40,8 +43,12 @@ window.UpsetPoultry.Swine = (function() {
       ctx.beginPath()
       ctx.arc(this.x, this.y, this.radius, Math.PI * 1.5, progress)
       ctx.lineTo(this.x, this.y)
+      ctx.lineTo(this.x, this.y - this.radius)
       ctx.fillStyle = this.color
       ctx.fill()
+      ctx.lineWidth = 2
+      ctx.strokeStyle = this.border
+      ctx.stroke()
     }
 
     klass.prototype.getExplosionProgress = function() {

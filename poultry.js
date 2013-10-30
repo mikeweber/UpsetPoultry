@@ -6,7 +6,8 @@ window.UpsetPoultry.Poultry = (function() {
     this.flying     = false
     this.velocity_x = 0
     this.velocity_y = 0
-    this.color      = '#990000'
+    this.color      = '#d60a2d'
+    this.border     = '#333'
     this.cr         = 0.3
     this.mass       = 20
     this.friction   = 0.05
@@ -55,6 +56,9 @@ window.UpsetPoultry.Poultry = (function() {
       ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false)
       ctx.fillStyle = this.color
       ctx.fill()
+      ctx.lineWidth = 2
+      ctx.strokeStyle = this.border
+      ctx.stroke()
     }
   })(Poultry)
 

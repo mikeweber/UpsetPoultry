@@ -12,13 +12,15 @@ window.UpsetPoultry.Renderer = (function() {
     }
 
     klass.prototype.clearCanvas = function() {
-      this.ctx.fillStyle = '#87CEEB'
+      this.ctx.fillStyle = '#94cede'
       this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height)
     }
 
     klass.prototype.drawGround = function(ground_level) {
-      this.ctx.fillStyle = '#8B4513'
-      this.ctx.fillRect(0, ground_level, this.canvas.width, this.canvas.height)
+      this.ctx.fillStyle = '#152053'
+      this.ctx.fillRect(0, ground_level, this.canvas.width, this.canvas.height - ground_level)
+      this.ctx.fillStyle = '#59a41c'
+      this.ctx.fillRect(0, ground_level, this.canvas.width, 5)
     }
 
     klass.prototype.renderActors = function(scene) {
