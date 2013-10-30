@@ -7,7 +7,7 @@ window.UpsetPoultry.Swine = (function() {
     this.color = '#6de249'
     this.mass = 5
     this.cr   = 0.5
-    this.friction = 0.05
+    this.friction = 1.1
   }
 
   (function(klass) {
