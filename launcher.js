@@ -34,10 +34,10 @@ window.UpsetPoultry.Launcher = (function(){
     }
 
     klass.prototype.pullPoultry = function(window_x, window_y) {
-      if (this.current_shot) {
-        this.current_shot.setPosition(window_x, window_y)
-      }
       this.setDeltas(window_x - this.x, window_y - this.y)
+      if (this.current_shot) {
+        this.current_shot.setPosition(this.x + this.dx, this.y + this.dy)
+      }
     }
 
     klass.prototype.setDeltas = function(dx, dy) {
@@ -62,7 +62,7 @@ window.UpsetPoultry.Launcher = (function(){
     }
 
     klass.prototype.getPullAngle = function() {
-      return Math.atan(this.dy / this.dx)
+      return Math.atan2(this.dy, this.dx)
     }
 
     klass.prototype.getPullDistanceSquared = function() {
@@ -74,7 +74,7 @@ window.UpsetPoultry.Launcher = (function(){
     }
 
     klass.prototype.getElasticity = function() {
-      return 100
+      return 50
     }
 
     klass.prototype.draw = function(ctx) {
