@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Upset Poultry</title>
+  </head>
+  <body>
+    <canvas id="game" style="width=640px;height=480px"></canvas>
+
+    <script type='text/javascript' src='game_namespace.js'></script>
+    <script type='text/javascript' src='game_engine.js'></script>
+    <script type='text/javascript' src='renderer.js'></script>
+    <script type='text/javascript' src='launcher.js'></script>
+    <script type='text/javascript' src='poultry.js'></script>
+    <script type='text/javascript' src='swine.js'></script>
+    <script type='text/javascript' src='levels/level_01.js'></script>
+    <script type='text/javascript'>
+      var canvas = document.getElementById('game')
+      var game = new UpsetPoultry.Engine(canvas, 640, 480)
+      window.ppm = 8
+      game.run(new UpsetPoultry.Levels[1])
+    </script>
+  </body>
+</html>
