@@ -78,6 +78,11 @@ window.UpsetPoultry.Launcher = (function(){
     }
 
     klass.prototype.draw = function(ctx) {
+      this.drawSling(ctx)
+      this.drawBand(ctx)
+    }
+
+    klass.prototype.drawSling = function(ctx) {
       ctx.fillStyle = '#000099'
       ctx.beginPath()
       ctx.moveTo(this.x,      this.y + 20)
@@ -91,6 +96,20 @@ window.UpsetPoultry.Launcher = (function(){
       ctx.lineTo(this.x - 20, this.y - 15)
       ctx.closePath()
       ctx.fill()
+    }
+
+    klass.prototype.drawBand = function(ctx) {
+      ctx.beginPath()
+      ctx.moveTo(this.x + 22, this.y - 15)
+      if (this.current_shot) {
+        ctx.lineTo(this.current_shot.x, this.current_shot.y)
+      } else {
+        ctx.lineTo(this.x, this.y)
+      }
+      ctx.lineTo(this.x - 22, this.y - 15)
+      ctx.strokeStyle = '#333'
+      ctx.lineWidth = 4
+      ctx.stroke()
     }
 
   })(Launcher)
