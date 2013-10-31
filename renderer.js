@@ -1,7 +1,8 @@
 window.UpsetPoultry.Renderer = (function() {
   function Renderer(canvas) {
-    this.canvas = canvas
-    this.ctx    = canvas.getContext('2d')
+    this.canvas    = canvas
+    this.ctx       = canvas.getContext('2d')
+    this.show_name = true
   }
 
   (function(klass) {
@@ -9,6 +10,7 @@ window.UpsetPoultry.Renderer = (function() {
       this.clearCanvas()
       this.drawGround(scene.ground.y)
       this.renderActors(scene)
+      this.renderHUD()
     }
 
     klass.prototype.clearCanvas = function() {
@@ -33,6 +35,19 @@ window.UpsetPoultry.Renderer = (function() {
 
     klass.prototype.renderActor = function(actor) {
       actor.draw(this.ctx)
+    }
+
+    klass.prototype.renderHUD = function() {
+      this.renderName()
+    }
+
+    klass.prototype.renderName = function() {
+      if (!this.show_name) return
+
+      this.ctx.font = "64px Comic Sans MS"
+      this.ctx.fillStyle = '#FFF'
+      this.ctx.fillText('Upset Poultry', 110, 200)
+      if (window.mouse_click) this.show_name = false
     }
   })(Renderer)
 
